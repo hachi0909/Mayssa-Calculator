@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayssa Calculator</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+    }
+    .calculator {
+        background-color: #111;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 30px #ff69b4;
+        width: 300px;
+    }
+    .title {
+        text-align: center;
+        color: #ff69b4;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    input {
+        width: 100%;
+        height: 50px;
+        text-align: right;
+        font-size: 22px;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 10px;
+        padding-right: 10px;
+    }
+    button {
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+        font-size: 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: #222;
+        color: #ff69b4;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    button:hover {
+        background-color: #ff69b4;
+        color: #000;
+    }
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <div class="title">Mayssa Calculator</div>
+    <input type="text" id="display" readonly>
+    <div class="row">
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendOperator('+')">+</button>
+    </div>
+    <div class="row">
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendOperator('-')">-</button>
+    </div>
+    <div class="row">
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendOperator('*')">*</button>
+    </div>
+    <div class="row">
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendOperator('/')">/</button>
+    </div>
+</div>
+
+<script>
+    const display = document.getElementById('display');
+
+    function appendNumber(num) {
+        display.value += num;
+    }
+
+    function appendOperator(op) {
+        display.value += op;
+    }
+
+    function clearDisplay() {
+        display.value = '';
+    }
+
+    function calculate() {
+        try {
+            let expression = display.value;
+            let result = eval(expression);
+
+            if(expression === "27+25+80") {
+                display.value = "I love you Mayssa❤️";
+            } else if(expression === "27+15+60") {
+                display.value = "Ewa sf chfayam";
+            } else {
+                display.value = result;
+            }
+        } catch {
+            display.value = "خطأ!";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
